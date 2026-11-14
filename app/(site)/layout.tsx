@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { BasketProvider } from "@/components/basket";
 import { getCategories, getSettings, SHOP, SITE_URL, whatsappUrl } from "@/lib/data";
 
@@ -35,6 +36,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         {children}
       </main>
       <Footer settings={settings} categories={categories} whatsappHref={wa} />
+      <WhatsAppFloat whatsappHref={wa} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(business).replace(/</g, "\\u003c") }}
