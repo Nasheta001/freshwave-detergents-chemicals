@@ -41,8 +41,7 @@ Tables are created on first start. If the database is empty, the full FreshWave 
 
 ## Hosting notes
 
-- Needs a Node.js host with a PostgreSQL database and a folder that keeps files (for uploads). A VPS, Railway or Render all work.
-- On serverless hosts such as Vercel the upload folder is not kept. Use a host with a disk, or change `lib/uploads.ts` to use object storage.
+- Needs a Node.js host with a PostgreSQL database. Uploaded photos and SDS files are stored in Vercel Blob (`lib/uploads.ts`), so a disk-backed host is not required.
 - Serve the site over HTTPS. The admin login cookie is HTTPS-only in production.
 - The shop map uses the exact coordinates in `lib/shared.ts` (`SHOP`). Change them there if the shop moves.
 - The privacy policy and terms pages are plain starting text. Have them checked before going live.
