@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* FreshWave colour system, built on the "Luna" reference palette. */
+@theme {
+  --color-ink: #011c40;
+  --color-navy: #023859;
+  --color-ocean: #26658c;
+  --color-teal: #54acbf;
+  --color-ice: #a7ebf2;
+  --color-mist: #f1f7f9;
+  --color-line: #d7e5eb;
+  --color-body: #0b2239;
+  --color-muted: #4a6578;
+  --font-sans: "Raleway Variable", "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 14px;
+}
+
+@layer base {
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-body);
+  background: #fff;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ocean);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+}
+
+@layer components {
+.container-fw {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+@media (min-width: 768px) {
+  .container-fw {
+    padding-inline: 32px;
+  }
+}
+
+/* Buttons: one shape, three tones. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-sm {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+.btn-primary {
+  background: var(--color-navy);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-ink);
+  box-shadow: 0 8px 20px -10px rgb(1 28 64 / 0.6);
+}
+.btn-light {
+  background: var(--color-ice);
+  color: var(--color-ink);
+}
+.btn-light:hover {
+  background: #fff;
+}
+.btn-outline {
+  border-color: var(--color-line);
+  color: var(--color-navy);
+  background: #fff;
+}
+.btn-outline:hover {
+  border-color: var(--color-ocean);
+  color: var(--color-ink);
+}
+.btn-ghost-dark {
+  border-color: rgb(167 235 242 / 0.4);
+  color: #fff;
+}
+.btn-ghost-dark:hover {
+  border-color: var(--color-ice);
+  background: rgb(167 235 242 / 0.08);
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ocean);
+}
+.eyebrow-dark {
+  color: var(--color-ice);
+}
+
+.field {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  color: var(--color-body);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+textarea.field {
+  height: auto;
+  padding: 12px 14px;
+  line-height: 1.5;
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-ocean);
+  box-shadow: 0 0 0 3px rgb(38 101 140 / 0.15);
+}
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 6px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+}
+
+.prose-fw p {
+  margin-bottom: 1em;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+.prose-fw h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 1.6em 0 0.5em;
+}
+}
